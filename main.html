@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="operations.js"></script>
+    <script src="stack.js"></script>
+    <script src="textutils.js"></script>
+    <script type="module" src="main.js"></script>
+    <title>L-Project</title>
+</head>
+<body>
+    <div class="container">
+        <div class="main-background">
+            <div class="menu">
+                <button class="menu-tasks l-text">Задания</button>
+                <label class="menu-status l-text">Сохранение...</label>
+            </div>
+            <div class="task-description"></div>
+            <div class="data-container">
+                <table class="expr-list">
+                    <template class="expr-template">
+                        <tr class="expr-row">
+                            <td class="expr-item">
+                                <div class="expr-info">
+                                    <div class="expr-uid">9999</div>
+                                    <div class="expr-conn">9999</div>
+                                </div>
+                                <div class="expr-data">
+                                    <div class="expr-title">
+                                        <img class="expr-error"/>
+                                        <div class="expr-op">...</div>
+                                    </div>
+                                    <img class="expr-val"/>
+                                </div>
+                                <div class="expr-tool-kit">
+                                    <img class="expr-tool" src="./ErrorIcons/Edit.png"/>
+                                    <img class="expr-tool" src="./ErrorIcons/Up.png"/>
+                                    <img class="expr-tool" src="./ErrorIcons/Down.png"/>
+                                    <img class="expr-tool" src="./ErrorIcons/Remove.png"/>
+                                </div>
+                            </td>
+                        </tr>
+                    </template>
+                </table>
+            </div>        
+            <canvas class="work-canvas"></canvas>
+            <div class="edit-panel">
+                <div class="edit-send">
+                    <div class="extra-symbols">
+                        <button class="extra-symbol serial-btn">Дополнение</button>
+                        <button class="extra-symbol serial-btn">Пересечение</button>
+                        <button class="extra-symbol serial-btn">Объединение</button>
+                        <button class="extra-symbol serial-btn">Разность</button>
+                    </div>
+                    <select class="edit-op" size="1" name="operation">
+                        <option disabled>Выберите операцию</option>
+                    </select>
+                </div>
+                <canvas class="edit" height="30px"></canvas>
+                <canvas class="edit" height="30px"></canvas>
+                <div class="edit-info">
+                    <div class="marker-list">
+                        <template class="marker-template">
+                            <div class="marker-unit">
+                                <button class="marker-name select-btn">Маркер 1</button>
+                                <input class="edit-link" type="text">
+                            </div>
+                        </template>
+                    </div>
+                    <button class="send-btn std-btn">Добавить</button>
+                    <button class="cancel-btn std-btn">X</button>
+                </div>
+            </div>
+        </div>        
+        <div class="task-list-background">
+            <ul class="task-list">
+                <div class="task-list-title l-text">Список заданий</div>
+                <div class="task-list-status l-text">Заданий нет</div>
+                <!-- Задания -->
+                <template class="task-template">
+                    <li class="task">
+                        <div class="task-header">
+                            <div class="task-title l-text"></div>
+                            <div class="task-status">
+                                <div class="task-status-icon"></div>
+                                <div class="task-status-text l-text"></div>                            
+                            </div>
+                        </div>
+                        <div class="task-text l-text"></div>
+                    </li>
+                </template>
+            </ul>
+        </div>        
+        <div class="message-box-background">
+            <div class="message-box">
+                <div class="message-box-title l-text">Ошибка</div>
+                <div class="message-box-text l-text">Ошибка сервера приложения.<br>Не удалось получить список заданий</div>
+                <button class="message-box-button l-text">Закрыть</button>
+            </div>
+        </div>
+
+        <div class="tool-tip"></div>
+        <div class="font-item">.</div>
+    </div>
+</body>
+</html>

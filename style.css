@@ -1,0 +1,482 @@
+﻿html, body {
+    height: 100%;
+    margin: 0px;
+}
+
+.container {
+    height: 100%;
+    position: relative;
+}
+
+.task-description {
+    width: auto;
+    height: 100px;
+    margin: 10px;
+    flex-shrink: 0;
+    border: 1px solid black;
+}
+
+.view-item:hover {
+    background-color: cornflowerblue;
+}
+
+.edit-panel {
+    display: flex;
+    margin: 10px;
+    flex-direction: column;
+}
+
+.edit {
+    width: 100%;
+    margin-bottom: 5px;
+    border: 1px solid black;
+}
+
+.edit-info {
+    height: 30px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.marker-list {
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.marker-unit {
+    display: flex;
+    align-items: center;
+}
+
+.marker-name {
+    margin: 0px 5px 0px 5px;
+}
+
+.edit-link {
+    width: 80px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 18pt;
+    text-align: end;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 1px solid black;
+    outline: none;
+}
+
+.edit-send {
+    height: 30px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.extra-symbols {
+    display: flex;
+}
+
+.edit-op {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 18pt;
+}
+
+.send-btn {
+    width: 150px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 18pt;
+}
+
+.cancel-btn {
+    width: 30px;
+    display: none;
+}
+
+.work-canvas {
+    display: none;
+}
+
+.main-background {
+    height: 100%;
+}
+
+.data-container {
+    height: calc(100% - 150px - 155px);
+    margin: 10px;
+    display: block;
+    overflow-y: auto;
+}
+
+.font-item {
+    font-family: 'LFont';
+    position: fixed;
+}
+
+.expr-list {
+    width: 100%;
+    display: table;
+}
+
+/* .expr-row {
+    
+} */
+
+.expr-item {
+    min-width: 100%;
+    height: 50px;
+    display: flex;
+    position: relative;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 500;
+}
+
+.expr-item:hover {
+    background-color: cornflowerblue;
+}
+
+.expr-info {
+    width: 80px;
+    height: 100%;
+    margin-right: 20px;
+    display: flex;
+    flex-shrink: 0;
+    flex-direction: column;
+}
+
+.expr-uid {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    font-size: 20pt;
+}
+
+.expr-conn {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    font-size: 12pt;
+}
+
+.expr-data {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.expr-title {
+    width: 100%;
+    height: 20px;
+    display: flex;
+}
+
+.expr-error {
+    width: 20px;
+    height: 20px;
+    margin-right: 20px;
+    display: flex;
+}
+
+.expr-op {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.expr-val {
+    width: fit-content;
+    display: flex;
+    align-items: center;
+}
+
+.expr-tool-kit {
+    width: 120px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: absolute;
+    visibility: hidden;
+}
+
+.expr-tool {
+    width: 25px;
+    height: 25px;
+}
+
+.expr-tool:hover {
+    width: 25px;
+    height: 25px;
+    background-color: rgba(200, 200, 200, .4);
+}
+
+.l-text {
+    font-family: 'Courier New', Courier, monospace;
+}
+
+/*
+    ================================================================================
+                                    Список заданий
+    ================================================================================
+*/
+
+.task-list-background {
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    display: none;
+    position: absolute;
+    z-index: 2;
+    background-color: rgba(255, 255, 255, 0.20);
+}
+
+.task-list {
+    left: 5%;
+    right: 5%;
+    top: 3%;
+    bottom: 3%;
+
+    margin: 0;
+    padding: 0;
+
+    background-color: black;
+
+    overflow-y: scroll;
+
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+
+    position: absolute;
+}
+
+.task-list-title {
+    padding: 15px 0px 15px 0px;
+    color: white;
+    font-size: 22pt;
+    text-align: center;
+    border-bottom: 1px solid white;
+}
+
+.task-list-status {
+    margin-top: 25px;
+    color: gray;
+    font-size: 14pt;
+    font-style: italic;
+    text-align: center;
+}
+
+.task {
+    height: 90px;
+    margin: 0px 20px 0px 20px;
+    border-width: 0px 0px 2px 0px;
+    border-style: solid;
+    border-image: linear-gradient(to right,white,rgba(0, 0, 0, 0)) 1;
+    cursor: pointer;
+}
+
+.task:hover {
+    background-color: steelblue;
+}
+
+.task-header {
+    margin-top: 7px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.task-title {
+    padding-left: 30px;
+    color: white;
+    text-align: left;
+    font-size: 22pt;   
+}
+
+.task-status {
+    height: 100%;
+    margin-right: 15px;
+    display: flex;
+    align-items: center;
+}
+
+.task-status-icon {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: yellow;
+}
+
+.task-status-text {
+    margin-left: 7px;
+    display: flex;
+    align-items: center;
+    font-size: 14pt;
+    color: yellow;
+}
+
+.task-text {
+    font-size: 12pt;
+    color: white;
+    height: 40px;
+    margin-left: 10px;
+    margin-right: 10px;
+    overflow: hidden;
+}
+
+.task-text:after {
+    content: "";
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 40px;
+    background: linear-gradient(180deg, transparent, #c8ad90 50%);
+}
+
+.message-box-background {
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    z-index: 5;
+    background-color: rgba(123, 103, 103, 0.20);
+}
+
+.message-box {
+    width: 250px;
+    height: 220px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    background-color: white;
+}
+
+.message-box-title {
+    width: 100%;
+    height: 30px;
+    margin-top: 10px;
+    font-size: 18pt;
+    text-align: center;
+    font-weight: 700;
+}
+
+.message-box-text {
+    height: 120px;
+    margin: 10px 10px 0px 10px;
+    display: flex;
+    align-items: center;
+    font-size: 14pt;
+}
+
+.message-box-button {
+    bottom: 10px;
+    position: absolute;
+    font-size: 16pt;
+}
+
+/*
+    ================================================================================
+                                        Меню
+    ================================================================================
+*/
+.menu {
+    height: 30px;
+    background-color: black;
+    display: flex;
+}
+
+.menu-tasks {
+    margin: 2px 0px 0px 2px;
+    height: 26px;
+    background-color: black;
+    border: 1px solid gray;
+    color: white;
+    font-size: 16pt;
+}
+
+.menu-status {
+    width: 200px;
+    margin-left: 20px;
+    display: flex;
+    align-items: center;
+    color: white;
+    font-size: 16pt;
+    visibility: hidden;
+}
+
+.tool-tip {
+    position: fixed;
+    background-color: lemonchiffon;
+    visibility: hidden;
+}
+
+/*
+    ================================================================================
+                                    Обобщенные элементы
+    ================================================================================
+*/
+
+.serial-btn {
+    color: white;
+    font-size: 16pt;
+    font-family: 'Courier New', Courier, monospace;
+    background-color: black;
+    border-left: 2px solid gray;
+    border-top: 2px solid gray;
+    border-right: 0px;
+    border-bottom: 0px;
+    cursor: pointer;
+}
+
+.serial-btn:hover {
+    border-left: 2px solid rgb(255, 125, 0);
+    border-top: 2px solid rgb(255, 125, 0);
+    background-color: rgb(30, 30, 30);
+}
+
+.serial-btn:active {
+    background-color: rgb(0, 0, 0);
+}
+
+.std-btn {
+    color: white;
+    font-size: 16pt;
+    font-family: 'Courier New', Courier, monospace;
+    background-color: black;
+    border: 2px solid gray;
+    cursor: pointer;
+}
+
+.std-btn:hover {
+    border: 2px solid rgb(255, 125, 0);
+    background-color: rgb(30, 30, 30);
+}
+
+.std-btn:active {
+    background-color: rgb(0, 0, 0);
+}
+
+.select-btn {
+    color: black;
+    font-size: 16pt;
+    font-family: 'Courier New', Courier, monospace;
+    background-color: white;
+    border: 2px solid white;
+    cursor: pointer;
+}
+
+.select-btn:hover {
+    border: 2px solid rgb(255, 125, 0);
+}
+
+.select-btn:active {
+    font-weight: 900;
+}
+
+@font-face {
+    font-family: 'LFont'; 
+    src: url('/Consolas.woff2') format('woff2'); 
+} 
